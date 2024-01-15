@@ -1,0 +1,14 @@
+version: '3'
+services:
+  php:
+    tty: true
+    build:
+      context: .docker
+      dockerfile: Dockerfile
+    container_name: VitrineAPI
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www/html
+      - .xdebug/99-xdebug.ini:/usr/local/etc/php/conf.d/99-xdebug.ini
+    command: php -S 0.0.0.0:80 -t /var/www/html/public
