@@ -12,3 +12,15 @@ services:
       - ./:/var/www/html
       - .xdebug/99-xdebug.ini:/usr/local/etc/php/conf.d/99-xdebug.ini
     command: php -S 0.0.0.0:80 -t /var/www/html/public
+  banco:
+    image: mysql:5.7
+    container_name: banco
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./banco:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=vitrine
+      - MYSQL_ROOT_PASSWORD=pwdroot
+      - MYSQL_USER=vitrine
+      - MYSQL_PASSWORD=vitrine
