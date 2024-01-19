@@ -1,6 +1,28 @@
 {
+    "name": "andersoncoimbra/vitrine-api",
+    "description": "API para o projeto Vitrine",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anderson Coimbra",
+            "email": "falecom@andersoncoimbra.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
     "require": {
+        "php": ">=7.2",
         "slim/slim": "4.*",
-        "slim/psr7": "^1.6"
+        "slim/psr7": "^1.6",
+        "illuminate/database": "^5.4"
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
     }
 }
