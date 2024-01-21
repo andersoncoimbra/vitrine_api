@@ -38,4 +38,17 @@ class ProductController
             ->withHeader('Content-Type', 'application/json')
             ->withStatus(201);
     }
+
+    public function update(Request $request,Response $response, $args)
+    {
+        $data = json_decode($request->getBody()->getContents(), true);
+
+        $product = Product::find($args['id']);
+        $product->update($data);
+
+        $response->getBody()->write(json_encode(['product' => $product]));
+        return $response
+            ->withHeader('Content-Type', 'application/json')
+            ->withStatus(200);
+    }
 }
